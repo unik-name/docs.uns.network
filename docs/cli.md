@@ -814,6 +814,46 @@ confirmations: 833
 
 Network fees: 1 UNIK by default. Can be adjusted with `--fee` parameter.
 
+### `unik:transfer` <Badge text="added 4.9.0" />
+
+#### Introduction
+Transfer UNIK to another cryptoaccount.
+
+#### Arguments
+- `TARGET` (required):  The @unikname or unik ID that you want to change passphrase [the format of a DID](/cheatsheet.html#did-decentralized-identifier).
+
+#### Parameters
+
+- `-t --to`: Recipient cryptoaccount address
+
+Some [global parameters](#global-parameters) may apply to this command.
+
+
+#### Usage
+
+```bash
+$ uns unik:transfer TARGET --to RECIPIENT_ADDRESS
+```
+
+#### Example
+
+Transfer UNIK `@bob` to `ST1CbQ1nan6yHv1FTgXN4Z31ZzH9guWfsc`
+
+```bash
+$ uns unik:transfer @bob --to ST1CbQ1nan6yHv1FTgXN4Z31ZzH9guWfsc
+
+data
+  from: SapwBVcMUtYLZDNGvCd1FatuzyHVE4ovvd
+  to: ST1CbQ1nan6yHv1FTgXN4Z31ZzH9guWfsc
+  id:  2145a1e84e8a54d066dbc535388898c56dae5d95e2c46a8c2e735dd3db97c03f
+  transaction:  5cb8c18b817f793eee58f4351426c2fe865d065d95667fcc8b23d8319afc0920
+  confirmations:  1
+```
+
+#### Network cost
+
+Network fees: 1 UNS by default. Can be adjusted with `--fee` parameter.
+
 ### `unik:activation` <Badge text="added 4.10.0" />
 
 #### Introduction
@@ -856,6 +896,53 @@ confirmations: 833
 #### Network cost
 
 Network fees: 1 UNIK by default. Can be adjusted with `--fee` parameter.
+
+### `unik:change-passphrase` <Badge text="added 4.11.0" />
+
+#### Introduction
+Change UNIK passphrase.
+
+#### Arguments
+- `TARGET` (required):  The @unikname or unik ID that you want to change passphrase [the format of a DID](/cheatsheet.html#did-decentralized-identifier).
+
+#### Parameters
+
+- `--new-passphrase`: Target cryptoaccount passphrase. If not passed, passphrase is asked during activation process.
+- `--new-second-passphrase` (optional): Target cryptoaccount second passphrase. If not passed and needed, second passphrase is asked during activation process.
+- `-y --yes` (optional): Confirm automatically all questions asked during process.
+
+Some [global parameters](#global-parameters) may apply to this command.
+
+
+#### Usage
+
+```bash
+$ uns unik:change-passphrase TARGET
+```
+
+#### Example
+
+Change passphrase of UNIK `@bob` on Sandbox network
+
+```bash
+$ uns unik:change-passphrase @bob -n sandbox -f yaml
+
+Enter your crypto account passphrase (12 words phrase): ********************************************************************
+Are you sure you want to change passphrase for 246910464d1b91b4ac49407eadad94e5d77d69051b356ccd2ec2ea70cf77baa5 ? (y): y
+Enter your NEW crypto account passphrase (12 words phrase): ******************************************************************************
+Confirm NEW cryptoaccount address: DPyHC2gAgr4wmLhrwqp8mGKzykgxF82b8d ? (y): y
+
+data
+  from: SapwBVcMUtYLZDNGvCd1FatuzyHVE4ovvd
+  to: ST1CbQ1nan6yHv1FTgXN4Z31ZzH9guWfsc
+  id:  2145a1e84e8a54d066dbc535388898c56dae5d95e2c46a8c2e735dd3db97c03f
+  transaction:  5cb8c18b817f793eee58f4351426c2fe865d065d95667fcc8b23d8319afc0920
+  confirmations:  1
+```
+
+#### Network cost
+
+Network fees: 1 UNS by default. Can be adjusted with `--fee` parameter.
 
 ### `properties:set`
 
